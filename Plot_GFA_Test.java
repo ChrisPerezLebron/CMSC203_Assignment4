@@ -1,0 +1,34 @@
+
+
+
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class Plot_GFA_Test {
+	private Plot plot1, plot2, plot3, plot4;
+
+	@Before
+	public void setUp() throws Exception {
+		plot1 = new Plot(1,1,2,2); 
+		plot2 = new Plot(2,1,2,2);
+		
+		//same condition as plot1 and plot2 just vertical instead of horizontal 
+		plot3 = new Plot(1,1,2,2); 
+		plot4 = new Plot(1,2,2,2);
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		plot1=plot2=plot3=plot4=null;
+	}
+
+	@Test
+	public void testOverlaps1() {
+		assertTrue(plot1.overlaps(plot2)); //plot2 overlaps the right side of plot1
+		assertTrue(plot3.overlaps(plot4));
+	}
+}
